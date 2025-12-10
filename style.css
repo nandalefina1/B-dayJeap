@@ -1,0 +1,119 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #0d1a26;
+    /* Animasi Latar Belakang Berkedip (Party Light) */
+    animation: background-blink 10s infinite alternate;
+}
+
+@keyframes background-blink {
+    0% { background-color: #0d1a26; }
+    25% { background-color: #ff69b4; } /* Pink */
+    50% { background-color: #87ceeb; } /* Light Blue */
+    75% { background-color: #ffd700; } /* Gold */
+    100% { background-color: #0d1a26; }
+}
+
+#birthday-card {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    max-width: 800px;
+    width: 90%;
+    /* Animasi Kartu Muncul */
+    transform: scale(0);
+    opacity: 0; /* Tambahkan opacity agar transisi lebih mulus */
+    animation: card-in 1.5s forwards;
+}
+
+@keyframes card-in {
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+h1 {
+    font-size: 3.5em;
+    color: #ff4500;
+    margin-bottom: 20px;
+    /* Animasi Teks Bergetar */
+    animation: neon-pulse 3s infinite alternate;
+}
+
+@keyframes neon-pulse {
+    0% { text-shadow: 0 0 5px #ff4500; }
+    100% { text-shadow: 0 0 20px #ff4500, 0 0 30px #ff69b4; }
+}
+
+#message {
+    font-size: 1.2em;
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    /* Efek Ketik */
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: .15em solid orange;
+    animation: typing 4s steps(60, end) 1s forwards, blink-cursor .75s step-end infinite;
+}
+
+/* Animasi Ketik (Typing) */
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+/* Animasi Kursor */
+@keyframes blink-cursor {
+    from, to { border-color: transparent }
+    50% { border-color: orange; }
+}
+
+.idol-gallery {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.idol-pic {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid #ffd700;
+    transition: transform 0.5s ease-in-out;
+    /* Animasi Rotasi Foto: Jaga rotasi terpisah dari transformasi hover */
+    animation: rotate-only 15s infinite linear;
+}
+
+/* Animasi hanya untuk rotasi */
+@keyframes rotate-only {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.idol-pic:hover {
+    /* Transformasi hover: Skala dan putaran kecil tambahan */
+    transform: scale(1.1) rotate(5deg);
+    /* Hentikan animasi 'rotate-only' saat di-hover */
+    animation-play-state: paused;
+}
+
+.footer-text {
+    margin-top: 30px;
+    font-style: italic;
+    color: #666;
+    opacity: 0;
+    /* Animasi Teks Bawah Muncul */
+    animation: fade-in 2s 5s forwards;
+}
+
+@keyframes fade-in {
+    to { opacity: 1; }
+}
